@@ -18,10 +18,10 @@ const uint8_t PATTERNS[] = {
   //LED_CUBE  :2
   //Main_Bpard:2
   //GND
-    //未使用っぽい
+    //*45*5321
     0b00000000,
-    //54311321(下から
-    0b11111111,
+    //*4321321(下から
+    0b00000000,
   //LED_RED
     //{{5,5},{4,5},{3,5},{1,5},{2,5}}
     0b00000000,
@@ -68,8 +68,8 @@ void loop() {
     SPI.transfer(PATTERNS[i]);
 
     // シフトレジスタの状態をストアレジスタへ反映させる
+  }
     digitalWrite(RCLK,  LOW);
     digitalWrite(RCLK,  HIGH);
-  }
     delay(1000);
 }

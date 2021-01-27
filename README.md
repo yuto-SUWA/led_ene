@@ -3,9 +3,9 @@
 その真相を解明すべく、われわれはAmazonの奥地に向かったのであった。  
 
 ## 各種メモ
-- リモコンデータ
-リモコンの信号を読んだ時のメモ
-- EneLEDリファレンス
+- [リモコンデータ](https://github.com/yoshiko-kulala/led_ene/blob/master/remocon_sig.md)  
+リモコンの信号を読んだ時のメモ  
+- [EneLEDリファレンス](https://github.com/yoshiko-kulala/led_ene/blob/master/EneLED_reference.md)  
 EneLEDクラスのリファレンス  
 
 ## cube

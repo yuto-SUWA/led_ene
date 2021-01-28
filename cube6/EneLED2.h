@@ -12,6 +12,9 @@ class EneLED{
     void led_xaxis(int color);//0b001:red,0b010:green,0b100:blue
     void led_yaxis(int color);
     void led_zaxis(int color);
+    void led_xaxis_rev(int color);
+    void led_yaxis_rev(int color);
+    void led_zaxis_rev(int color);
     void led_full(int color);
     void output();    //出力
   private:

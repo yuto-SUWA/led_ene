@@ -15,5 +15,22 @@ void setup() {
 }
 
 void loop() {
-  ene.led_full(0b010);
+  c++;
+  if(c>8)c=1;
+  ene.led_full(c);
+  delay(2000);
+  ene.led_xaxis(c);
+  ene.led_xaxis_rev(c);
+  ene.led_xaxis(c);
+  ene.led_xaxis_rev(c);
+  ene.led_yaxis(c);
+  ene.led_yaxis_rev(c);
+  ene.led_yaxis(c);
+  ene.led_yaxis_rev(c);
+  ene.led_zaxis(c);
+  ene.led_zaxis_rev(c);
+  ene.led_zaxis(c);
+  ene.led_zaxis_rev(c);
+  ene.led_test();
+  ene.led_test();
 }

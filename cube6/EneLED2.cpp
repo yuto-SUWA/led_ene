@@ -30,87 +30,145 @@ void EneLED::led_test() {
   for (int i = 0; i < 5; i++) {
     led_clear();
     for (int j = 0; j < 5; j++) {
-      int k = j - i;
-      if (k < 0)k = k + 5;
-      led_red[abs(j - 4)][j][k] = 1;
-      led_gre[j][j][k] = 1;
-      led_blu[j][abs(j - 4)][k] = 1;
+      led_red[abs(j - 4)][j][(j - i + 5) % 5] = 1;
+      led_gre[j][j][(j - i + 5) % 5] = 1;
+      led_blu[j][abs(j - 4)][(j - i + 5) % 5] = 1;
     }
     delay(500);
   }
 }
 
-void EneLED::led_xaxis(int color){
-  for(int i=0;i<5;i++){
+void EneLED::led_xaxis(int color) {
+  for (int i = 0; i < 5; i++) {
     led_clear();
-    for(int j=0;j<5;j++){
-      for(int k=0;k<5;k++){
-        if(color%2){
+    for (int j = 0; j < 5; j++) {
+      for (int k = 0; k < 5; k++) {
+        if (color % 2) {
           led_red[i][j][k] = 1;
         }
-        if((color/2)%2){
+        if ((color / 2) % 2) {
           led_gre[i][j][k] = 1;
         }
-        if((color/4)%2){
+        if ((color / 4) % 2) {
           led_blu[i][j][k] = 1;
         }
       }
     }
-    delay(200);
+    delay(100);
   }
 }
 
-void EneLED::led_yaxis(int color){
-  for(int i=0;i<5;i++){
+void EneLED::led_yaxis(int color) {
+  for (int i = 0; i < 5; i++) {
     led_clear();
-    for(int j=0;j<5;j++){
-      for(int k=0;k<5;k++){
-        if(color%2){
+    for (int j = 0; j < 5; j++) {
+      for (int k = 0; k < 5; k++) {
+        if (color % 2) {
           led_red[j][i][k] = 1;
         }
-        if((color/2)%2){
+        if ((color / 2) % 2) {
           led_gre[j][i][k] = 1;
         }
-        if((color/4)%2){
+        if ((color / 4) % 2) {
           led_blu[j][i][k] = 1;
         }
       }
     }
-    delay(200);
+    delay(100);
   }
 }
 
-void EneLED::led_zaxis(int color){
-  for(int i=0;i<5;i++){
+void EneLED::led_zaxis(int color) {
+  for (int i = 0; i < 5; i++) {
     led_clear();
-    for(int j=0;j<5;j++){
-      for(int k=0;k<5;k++){
-        if(color%2){
+    for (int j = 0; j < 5; j++) {
+      for (int k = 0; k < 5; k++) {
+        if (color % 2) {
           led_red[j][k][i] = 1;
         }
-        if((color/2)%2){
+        if ((color / 2) % 2) {
           led_gre[j][k][i] = 1;
         }
-        if((color/4)%2){
+        if ((color / 4) % 2) {
           led_blu[j][k][i] = 1;
         }
       }
     }
-    delay(200);
+    delay(100);
   }
 }
 
-void EneLED::led_full(int color){
-  for(int i=0;i<5;i++){
-    for(int j=0;j<5;j++){
-      for(int k=0;k<5;k++){
-        if(color%2){
+void EneLED::led_xaxis_rev(int color) {
+  for (int i = 4; i > 0; i--) {
+    led_clear();
+    for (int j = 0; j < 5; j++) {
+      for (int k = 0; k < 5; k++) {
+        if (color % 2) {
           led_red[i][j][k] = 1;
         }
-        if((color/2)%2){
+        if ((color / 2) % 2) {
           led_gre[i][j][k] = 1;
         }
-        if((color/4)%2){
+        if ((color / 4) % 2) {
+          led_blu[i][j][k] = 1;
+        }
+      }
+    }
+    delay(100);
+  }
+}
+
+void EneLED::led_yaxis_rev(int color) {
+  for (int i = 4; i > 0; i--) {
+    led_clear();
+    for (int j = 0; j < 5; j++) {
+      for (int k = 0; k < 5; k++) {
+        if (color % 2) {
+          led_red[j][i][k] = 1;
+        }
+        if ((color / 2) % 2) {
+          led_gre[j][i][k] = 1;
+        }
+        if ((color / 4) % 2) {
+          led_blu[j][i][k] = 1;
+        }
+      }
+    }
+    delay(100);
+  }
+}
+
+void EneLED::led_zaxis_rev(int color) {
+  for (int i = 4; i > 0; i--) {
+    led_clear();
+    for (int j = 0; j < 5; j++) {
+      for (int k = 0; k < 5; k++) {
+        if (color % 2) {
+          led_red[j][k][i] = 1;
+        }
+        if ((color / 2) % 2) {
+          led_gre[j][k][i] = 1;
+        }
+        if ((color / 4) % 2) {
+          led_blu[j][k][i] = 1;
+        }
+      }
+    }
+    delay(100);
+  }
+}
+
+void EneLED::led_full(int color) {
+  for (int i = 0; i < 5; i++) {
+    for (int j = 0; j < 5; j++) {
+      for (int k = 0; k < 5; k++) {
+        if (color % 2) {
+          led_red[i][j][k] = 1;
+        }
+        if ((color / 2) % 2) {
+          led_gre[i][j][k] = 1;
+        }
+        if ((color / 4) % 2) {
           led_blu[i][j][k] = 1;
         }
       }

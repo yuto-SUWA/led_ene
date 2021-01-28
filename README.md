@@ -3,10 +3,13 @@
 その真相を解明すべく、われわれはAmazonの奥地に向かったのであった。  
 
 ## 各種メモ
-- [リモコンデータ](https://github.com/yoshiko-kulala/led_ene/blob/master/remocon_sig.md)  
-リモコンの信号を読んだ時のメモ  
 - [EneLEDリファレンス](https://github.com/yoshiko-kulala/led_ene/blob/master/EneLED_reference.md)  
 EneLEDクラスのリファレンス  
+- [EneLED2リファレンス](https://github.com/yoshiko-kulala/led_ene/blob/master/EneLED2_reference.md)  
+EneLED2クラスのリファレンス  
+**最新版**  
+- [リモコンデータ](https://github.com/yoshiko-kulala/led_ene/blob/master/remocon_sig.md)  
+リモコンの信号を読んだ時のメモ  
 
 ## cube
 LEDcubeを動かす前に配列から信号を出す練習(使い道なし)  
@@ -37,6 +40,7 @@ pikaという配列から光らせる
 各段ごとに出力を切り替えて別々に表示できるようになった  
 それに合わせて入力用の配列も変化  
 割り込みは500Hzになった  
+[![](http://img.youtube.com/vi/GyUMiwEu_p8/0.jpg)](http://www.youtube.com/watch?v=GyUMiwEu_p8 "")  
 
 ## WS2812B
 マイコン入りLEDテープのデモ

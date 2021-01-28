@@ -11,12 +11,12 @@ void interrupt() {
 void setup() {
   MsTimer2::set(2, interrupt);
   MsTimer2::start();
-  ene.init(1);
+  ene.init(2);
 }
 
 void loop() {
   c++;
-  if(c>8)c=1;
+  if (c > 8)c = 1;
   ene.led_full(c);
   delay(2000);
   ene.led_xaxis(c);

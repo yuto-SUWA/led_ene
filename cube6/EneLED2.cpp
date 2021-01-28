@@ -182,44 +182,144 @@ void EneLED::output() {
   led_swap(pattern_count % 5);
   switch (pattern_count % 5) {
     case 0:
-      SPI.transfer(0x01);
-      digitalWrite(6,  LOW);
-      digitalWrite(6,  HIGH);
-      SPI.transfer(0x09);
-      digitalWrite(6,  LOW);
-      digitalWrite(6,  HIGH);
+      switch (board_no) {
+        case 1:
+          SPI.transfer(0x01);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x09);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+        case 2:
+          SPI.transfer(0x01);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x09);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+        case 3:
+          SPI.transfer(0x01);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x09);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+      }
       break;
     case 1:
-      SPI.transfer(0x28);
-      digitalWrite(6,  LOW);
-      digitalWrite(6,  HIGH);
-      SPI.transfer(0x80);
-      digitalWrite(6,  LOW);
-      digitalWrite(6,  HIGH);
+      switch (board_no) {
+        case 1:
+          SPI.transfer(0x28);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x80);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+        case 2:
+          SPI.transfer(0x02);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x02);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+        case 3:
+          SPI.transfer(0x02);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x02);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+      }
       break;
     case 2:
-      SPI.transfer(0x50);
-      digitalWrite(6,  LOW);
-      digitalWrite(6,  HIGH);
-      SPI.transfer(0x40);
-      digitalWrite(6,  LOW);
-      digitalWrite(6,  HIGH);
+      switch (board_no) {
+        case 1:
+          SPI.transfer(0x50);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x40);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+        case 2:
+          SPI.transfer(0x04);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x24);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+        case 3:
+          SPI.transfer(0x48);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x80);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+      }
       break;
     case 3:
-      SPI.transfer(0x84);
-      digitalWrite(6,  LOW);
-      digitalWrite(6,  HIGH);
-      SPI.transfer(0x24);
-      digitalWrite(6,  LOW);
-      digitalWrite(6,  HIGH);
+      switch (board_no) {
+        case 1:
+          SPI.transfer(0x84);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x24);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+        case 2:
+          SPI.transfer(0x50);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x40);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+        case 3:
+          SPI.transfer(0xA0);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x40);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+      }
       break;
     case 4:
-      SPI.transfer(0x02);
-      digitalWrite(6,  LOW);
-      digitalWrite(6,  HIGH);
-      SPI.transfer(0x12);
-      digitalWrite(6,  LOW);
-      digitalWrite(6,  HIGH);
+      switch (board_no) {
+        case 1:
+          SPI.transfer(0x02);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x12);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+        case 2:
+          SPI.transfer(0x28);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x80);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+        case 3:
+          SPI.transfer(0x04);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          SPI.transfer(0x24);
+          digitalWrite(6,  LOW);
+          digitalWrite(6,  HIGH);
+          break;
+      }
       break;
   }
   for (int i = 0; i < 15; i++) {
@@ -230,52 +330,153 @@ void EneLED::output() {
 }
 
 void EneLED::led_swap(int stage) {
-  //1
-  PATTERNS[0] = {2 * led_red[1][4][stage] + 4 * led_red[0][4][stage] + 8 * led_red[2][4][stage]
-                 + 16 * led_red[3][4][stage] + 32 * led_red[4][4][stage]
-                };
-  PATTERNS[1] = {2 * led_red[1][3][stage] + 4 * led_red[0][3][stage] + 8 * led_red[2][3][stage]
-                 + 16 * led_red[3][3][stage] + 32 * led_red[4][3][stage]
-                };
-  PATTERNS[2] = {2 * led_red[1][2][stage] + 4 * led_red[0][2][stage] + 8 * led_red[2][2][stage]
-                 + 16 * led_red[3][2][stage] + 32 * led_red[4][2][stage]
-                };
-  PATTERNS[3] = {2 * led_red[1][1][stage] + 4 * led_red[0][1][stage] + 8 * led_red[2][1][stage]
-                 + 16 * led_red[3][1][stage] + 32 * led_red[4][1][stage]
-                };
-  PATTERNS[4] = {2 * led_red[1][0][stage] + 4 * led_red[0][0][stage] + 8 * led_red[2][0][stage]
-                 + 16 * led_red[3][0][stage] + 32 * led_red[4][0][stage]
-                };
+  switch (board_no) {
+    case 1:
+      PATTERNS[0] = {2 * led_red[1][4][stage] + 4 * led_red[0][4][stage] + 8 * led_red[2][4][stage]
+                     + 16 * led_red[3][4][stage] + 32 * led_red[4][4][stage]
+                  };
+      PATTERNS[1] = {2 * led_red[1][3][stage] + 4 * led_red[0][3][stage] + 8 * led_red[2][3][stage]
+                     + 16 * led_red[3][3][stage] + 32 * led_red[4][3][stage]
+                  };
+      PATTERNS[2] = {2 * led_red[1][2][stage] + 4 * led_red[0][2][stage] + 8 * led_red[2][2][stage]
+                     + 16 * led_red[3][2][stage] + 32 * led_red[4][2][stage]
+                  };
+      PATTERNS[3] = {2 * led_red[1][1][stage] + 4 * led_red[0][1][stage] + 8 * led_red[2][1][stage]
+                     + 16 * led_red[3][1][stage] + 32 * led_red[4][1][stage]
+                  };
+      PATTERNS[4] = {2 * led_red[1][0][stage] + 4 * led_red[0][0][stage] + 8 * led_red[2][0][stage]
+                     + 16 * led_red[3][0][stage] + 32 * led_red[4][0][stage]
+                  };
 
-  PATTERNS[5] = {2 * led_blu[1][4][stage] + 4 * led_blu[0][4][stage] + 8 * led_blu[2][4][stage]
-                 + 16 * led_blu[3][4][stage] + 32 * led_blu[4][4][stage]
-                };
-  PATTERNS[6] = {2 * led_blu[1][3][stage] + 4 * led_blu[0][3][stage] + 8 * led_blu[2][3][stage]
-                 + 16 * led_blu[3][3][stage] + 32 * led_blu[4][3][stage]
-                };
-  PATTERNS[7] = {2 * led_blu[1][2][stage] + 4 * led_blu[0][2][stage] + 8 * led_blu[2][2][stage]
-                 + 16 * led_blu[3][2][stage] + 32 * led_blu[4][2][stage]
-                };
-  PATTERNS[8] = {2 * led_blu[1][1][stage] + 4 * led_blu[0][1][stage] + 8 * led_blu[2][1][stage]
-                 + 16 * led_blu[3][1][stage] + 32 * led_blu[4][1][stage]
-                };
-  PATTERNS[9] = {2 * led_blu[1][0][stage] + 4 * led_blu[0][0][stage] + 8 * led_blu[2][0][stage]
-                 + 16 * led_blu[3][0][stage] + 32 * led_blu[4][0][stage]
-                };
+      PATTERNS[5] = {2 * led_blu[1][4][stage] + 4 * led_blu[0][4][stage] + 8 * led_blu[2][4][stage]
+                     + 16 * led_blu[3][4][stage] + 32 * led_blu[4][4][stage]
+                  };
+      PATTERNS[6] = {2 * led_blu[1][3][stage] + 4 * led_blu[0][3][stage] + 8 * led_blu[2][3][stage]
+                     + 16 * led_blu[3][3][stage] + 32 * led_blu[4][3][stage]
+                  };
+      PATTERNS[7] = {2 * led_blu[1][2][stage] + 4 * led_blu[0][2][stage] + 8 * led_blu[2][2][stage]
+                     + 16 * led_blu[3][2][stage] + 32 * led_blu[4][2][stage]
+                  };
+      PATTERNS[8] = {2 * led_blu[1][1][stage] + 4 * led_blu[0][1][stage] + 8 * led_blu[2][1][stage]
+                     + 16 * led_blu[3][1][stage] + 32 * led_blu[4][1][stage]
+                  };
+      PATTERNS[9] = {2 * led_blu[1][0][stage] + 4 * led_blu[0][0][stage] + 8 * led_blu[2][0][stage]
+                     + 16 * led_blu[3][0][stage] + 32 * led_blu[4][0][stage]
+                  };
 
-  PATTERNS[10] = {2 * led_gre[1][4][stage] + 4 * led_gre[0][4][stage] + 8 * led_gre[4][4][stage]
-                  + 16 * led_gre[3][4][stage] + 32 * led_gre[2][4][stage]
-                 };
-  PATTERNS[11] = {2 * led_gre[1][3][stage] + 4 * led_gre[0][3][stage] + 8 * led_gre[4][3][stage]
-                  + 16 * led_gre[3][3][stage] + 32 * led_gre[2][3][stage]
-                 };
-  PATTERNS[12] = {2 * led_gre[1][2][stage] + 4 * led_gre[0][2][stage] + 8 * led_gre[4][2][stage]
-                  + 16 * led_gre[3][2][stage] + 32 * led_gre[2][2][stage]
-                 };
-  PATTERNS[13] = {2 * led_gre[1][1][stage] + 4 * led_gre[0][1][stage] + 8 * led_gre[4][1][stage]
-                  + 16 * led_gre[3][1][stage] + 32 * led_gre[2][1][stage]
-                 };
-  PATTERNS[14] = {2 * led_gre[1][0][stage] + 4 * led_gre[0][0][stage] + 8 * led_gre[4][0][stage]
-                  + 16 * led_gre[3][0][stage] + 32 * led_gre[2][0][stage]
-                 };
+      PATTERNS[10] = {2 * led_gre[1][4][stage] + 4 * led_gre[0][4][stage] + 8 * led_gre[4][4][stage]
+                      + 16 * led_gre[3][4][stage] + 32 * led_gre[2][4][stage]
+                   };
+      PATTERNS[11] = {2 * led_gre[1][3][stage] + 4 * led_gre[0][3][stage] + 8 * led_gre[4][3][stage]
+                      + 16 * led_gre[3][3][stage] + 32 * led_gre[2][3][stage]
+                   };
+      PATTERNS[12] = {2 * led_gre[1][2][stage] + 4 * led_gre[0][2][stage] + 8 * led_gre[4][2][stage]
+                      + 16 * led_gre[3][2][stage] + 32 * led_gre[2][2][stage]
+                   };
+      PATTERNS[13] = {2 * led_gre[1][1][stage] + 4 * led_gre[0][1][stage] + 8 * led_gre[4][1][stage]
+                      + 16 * led_gre[3][1][stage] + 32 * led_gre[2][1][stage]
+                   };
+      PATTERNS[14] = {2 * led_gre[1][0][stage] + 4 * led_gre[0][0][stage] + 8 * led_gre[4][0][stage]
+                      + 16 * led_gre[3][0][stage] + 32 * led_gre[2][0][stage]
+                   };
+      break;
+    case 2:
+      PATTERNS[0] = {2 * led_red[1][4][stage] + 4 * led_red[0][4][stage] + 8 * led_red[2][4][stage]
+                     + 16 * led_red[3][4][stage] + 32 * led_red[4][4][stage]
+                  };
+      PATTERNS[1] = {2 * led_red[1][3][stage] + 4 * led_red[0][3][stage] + 8 * led_red[2][3][stage]
+                     + 16 * led_red[3][3][stage] + 32 * led_red[4][3][stage]
+                  };
+      PATTERNS[2] = {2 * led_red[1][2][stage] + 4 * led_red[0][2][stage] + 8 * led_red[2][2][stage]
+                     + 16 * led_red[3][2][stage] + 32 * led_red[4][2][stage]
+                  };
+      PATTERNS[3] = {2 * led_red[1][1][stage] + 4 * led_red[0][1][stage] + 8 * led_red[2][1][stage]
+                     + 16 * led_red[3][1][stage] + 32 * led_red[4][1][stage]
+                  };
+      PATTERNS[4] = {2 * led_red[1][0][stage] + 4 * led_red[0][0][stage] + 8 * led_red[2][0][stage]
+                     + 16 * led_red[3][0][stage] + 32 * led_red[4][0][stage]
+                  };
+
+      PATTERNS[5] = {2 * led_blu[1][4][stage] + 4 * led_blu[0][4][stage] + 8 * led_blu[4][4][stage]
+                     + 16 * led_blu[3][4][stage] + 32 * led_blu[2][4][stage]
+                  };
+      PATTERNS[6] = {2 * led_blu[1][3][stage] + 4 * led_blu[0][3][stage] + 8 * led_blu[4][3][stage]
+                     + 16 * led_blu[3][3][stage] + 32 * led_blu[2][3][stage]
+                  };
+      PATTERNS[7] = {2 * led_blu[1][2][stage] + 4 * led_blu[0][2][stage] + 8 * led_blu[4][2][stage]
+                     + 16 * led_blu[3][2][stage] + 32 * led_blu[2][2][stage]
+                  };
+      PATTERNS[8] = {2 * led_blu[1][1][stage] + 4 * led_blu[0][1][stage] + 8 * led_blu[4][1][stage]
+                     + 16 * led_blu[3][1][stage] + 32 * led_blu[2][1][stage]
+                  };
+      PATTERNS[9] = {2 * led_blu[1][0][stage] + 4 * led_blu[0][0][stage] + 8 * led_blu[4][0][stage]
+                     + 16 * led_blu[3][0][stage] + 32 * led_blu[2][0][stage]
+                  };
+
+      PATTERNS[10] = {2 * led_gre[1][4][stage] + 4 * led_gre[0][4][stage] + 8 * led_gre[2][4][stage]
+                      + 16 * led_gre[3][4][stage] + 32 * led_gre[4][4][stage]
+                   };
+      PATTERNS[11] = {2 * led_gre[1][3][stage] + 4 * led_gre[0][3][stage] + 8 * led_gre[2][3][stage]
+                      + 16 * led_gre[3][3][stage] + 32 * led_gre[4][3][stage]
+                   };
+      PATTERNS[12] = {2 * led_gre[1][2][stage] + 4 * led_gre[0][2][stage] + 8 * led_gre[2][2][stage]
+                      + 16 * led_gre[3][2][stage] + 32 * led_gre[4][2][stage]
+                   };
+      PATTERNS[13] = {2 * led_gre[1][1][stage] + 4 * led_gre[0][1][stage] + 8 * led_gre[2][1][stage]
+                      + 16 * led_gre[3][1][stage] + 32 * led_gre[4][1][stage]
+                   };
+      PATTERNS[14] = {2 * led_gre[1][0][stage] + 4 * led_gre[0][0][stage] + 8 * led_gre[2][0][stage]
+                      + 16 * led_gre[3][0][stage] + 32 * led_gre[4][0][stage]
+                   };
+      break;
+    case 3:
+      PATTERNS[0] = {2 * led_red[3][4][stage] + 4 * led_red[4][4][stage] + 8 * led_red[2][4][stage]
+                     + 16 * led_red[1][4][stage] + 32 * led_red[0][4][stage]
+                  };
+      PATTERNS[1] = {2 * led_red[3][3][stage] + 4 * led_red[4][3][stage] + 8 * led_red[2][3][stage]
+                     + 16 * led_red[1][3][stage] + 32 * led_red[0][3][stage]
+                  };
+      PATTERNS[2] = {2 * led_red[3][2][stage] + 4 * led_red[4][2][stage] + 8 * led_red[2][2][stage]
+                     + 16 * led_red[1][2][stage] + 32 * led_red[0][2][stage]
+                  };
+      PATTERNS[3] = {2 * led_red[3][1][stage] + 4 * led_red[4][1][stage] + 8 * led_red[2][1][stage]
+                     + 16 * led_red[1][1][stage] + 32 * led_red[0][1][stage]
+                  };
+      PATTERNS[4] = {2 * led_red[3][0][stage] + 4 * led_red[4][0][stage] + 8 * led_red[2][0][stage]
+                     + 16 * led_red[1][0][stage] + 32 * led_red[0][0][stage]
+                  };
+
+      PATTERNS[5] = {2 * led_blu[3][4][stage] + 4 * led_blu[4][4][stage] + 8 * led_blu[2][4][stage]
+                     + 16 * led_blu[1][4][stage] + 32 * led_blu[0][4][stage]
+                  };
+      PATTERNS[6] = {2 * led_blu[3][3][stage] + 4 * led_blu[4][3][stage] + 8 * led_blu[2][3][stage]
+                     + 16 * led_blu[1][3][stage] + 32 * led_blu[0][3][stage]
+                  };
+      PATTERNS[7] = {2 * led_blu[3][2][stage] + 4 * led_blu[4][2][stage] + 8 * led_blu[2][2][stage]
+                     + 16 * led_blu[1][2][stage] + 32 * led_blu[0][2][stage]
+                  };
+      PATTERNS[8] = {2 * led_blu[3][1][stage] + 4 * led_blu[4][1][stage] + 8 * led_blu[2][1][stage]
+                     + 16 * led_blu[1][1][stage] + 32 * led_blu[0][1][stage]
+                  };
+      PATTERNS[9] = {2 * led_blu[3][0][stage] + 4 * led_blu[4][0][stage] + 8 * led_blu[2][0][stage]
+                     + 16 * led_blu[1][0][stage] + 32 * led_blu[0][0][stage]
+                  };
+
+      PATTERNS[10] = {2 * led_gre[3][4][stage] + 4 * led_gre[4][4][stage] + 8 * led_gre[2][4][stage]
+                      + 16 * led_gre[1][4][stage] + 32 * led_gre[0][4][stage]
+                   };
+      PATTERNS[11] = {2 * led_gre[3][3][stage] + 4 * led_gre[4][3][stage] + 8 * led_gre[2][3][stage]
+                      + 16 * led_gre[1][3][stage] + 32 * led_gre[0][3][stage]
+                   };
+      PATTERNS[12] = {2 * led_gre[3][2][stage] + 4 * led_gre[4][2][stage] + 8 * led_gre[2][2][stage]
+                      + 16 * led_gre[1][2][stage] + 32 * led_gre[0][2][stage]
+                   };
+      PATTERNS[13] = {2 * led_gre[3][1][stage] + 4 * led_gre[4][1][stage] + 8 * led_gre[2][1][stage]
+                      + 16 * led_gre[1][1][stage] + 32 * led_gre[0][1][stage]
+                   };
+      PATTERNS[14] = {2 * led_gre[3][0][stage] + 4 * led_gre[4][0][stage] + 8 * led_gre[2][0][stage]
+                      + 16 * led_gre[1][0][stage] + 32 * led_gre[0][0][stage]
+                   };
+      break;
+  }
 }

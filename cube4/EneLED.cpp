@@ -163,13 +163,13 @@ void EneLED::led_swap() {
     //case 1:
       //1
       PATTERNS[0] = {1 * led_gnd[0] + 2 * led_gnd[4] + 4 * led_gnd[3]
-                     + 8 * led_gnd[1] + 16 * led_gnd[2] + 32 * led_gnd[1]
-                     + 64 * led_gnd[2] + 128 * led_gnd[3]
-                  };
-      PATTERNS[1] = {1 * led_gnd[0] + 2 * led_gnd[4] + 4 * led_gnd[3]
-                     + 8 * led_gnd[0] + 16 * led_gnd[4] + 32 * led_gnd[3]
-                     + 64 * led_gnd[2] + 128 * led_gnd[1]
-                  };
+                 + 8 * led_gnd[1] + 16 * led_gnd[2] + 32 * led_gnd[1]
+                 + 64 * led_gnd[2] + 128 * led_gnd[3]
+                };
+  PATTERNS[1] = {1 * led_gnd[0] + 2 * led_gnd[4] + 4 * led_gnd[3]
+                 + 8 * led_gnd[0] + 16 * led_gnd[4] + 32 * led_gnd[3]
+                 + 64 * led_gnd[2] + 128 * led_gnd[1]
+                };
 
       PATTERNS[2] = {2 * led_red[1][4] + 4 * led_red[0][4] + 8 * led_red[2][4]
                      + 16 * led_red[3][4] + 32 * led_red[4][4]
